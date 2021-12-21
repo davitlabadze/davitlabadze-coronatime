@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Livewire\Register;
-use App\Http\Livewire\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,3 +32,7 @@ Route::get('resetpassword', function () {
 Route::get('setresetpassword', function () {
     return view('auth.set-reset-password');
 })->name('setresetpassword');
+
+Route::get('verify/email', function () {
+    return view('auth.confirmation-email');
+})->name('verifyemail');

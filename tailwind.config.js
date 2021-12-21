@@ -24,11 +24,13 @@ module.exports = {
         xxl: ['1.563rem', { lineHeight: '1.891rem' }],
         xxm: ['1rem', { lineHeight: '1.21rem' }],
         xxs: ['0.875rem', { lineHeight: '1.059rem' }],
+        18: '1.125rem',
     },
     extend: {
         spacing: {
             8: '0.5rem',
             16: '1rem',
+            18: '1.125rem',
             20: '1.25rem',
             24: '1.5rem',
             25: '1.563rem',
@@ -41,6 +43,7 @@ module.exports = {
             107: '6.688rem',
             108: '6.75rem',
             148: '9.25rem',
+            252: '15.75rem',
             337: '21.063rem',
             343: '21.438rem',
             392: '24.5rem',
