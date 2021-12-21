@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
+    return view('components.layouts.app');
 });
 
 Route::get('login', function () {
@@ -26,3 +26,7 @@ Route::get('login', function () {
 Route::get('register', function () {
     return view('auth.register');
 })->name('register');
+
+Route::get('resetpassword', function () {
+    return view('auth.reset-password');
+})->name('resetpassword');

@@ -10,8 +10,8 @@
 </head>
 <body class="overflow-hidden">
 
-    <div>{{ $slot }}</div>
 
+    <div>{{ $slot }}</div>
     @livewireScripts
 </body>
 </html>
