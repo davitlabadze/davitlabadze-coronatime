@@ -36,3 +36,8 @@ Route::get('setresetpassword', function () {
 Route::get('verify/email', function () {
     return view('auth.confirmation-email');
 })->name('verifyemail');
+
+
+Route::get('verify/email/success', function () {
+    return view('auth.signin-after-confirmation-email');
+})->name('verifyemailsuccess');
