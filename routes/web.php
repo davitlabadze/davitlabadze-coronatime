@@ -37,7 +37,10 @@ Route::get('verify/email', function () {
     return view('auth.confirmation-email');
 })->name('verifyemail');
 
-
 Route::get('verify/email/success', function () {
     return view('auth.signin-after-confirmation-email');
 })->name('verifyemailsuccess');
+
+Route::get('successfully/updated/password', function () {
+    return view('auth.successfully-updated-password');
+})->name('successfullyupdatedpassword');

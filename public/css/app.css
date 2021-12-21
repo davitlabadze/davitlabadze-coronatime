@@ -658,8 +658,21 @@ Ensure the default browser behavior of the `hidden` attribute.
     right: 0px;
   }
 
+  .sm\:inset-x-2 {
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+
   .sm\:bottom-0 {
     bottom: 0px;
+  }
+
+  .sm\:bottom-14 {
+    bottom: 3.5rem;
+  }
+
+  .sm\:bottom-2 {
+    bottom: 0.5rem;
   }
 
   .sm\:ml-0 {
@@ -706,6 +719,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-right: 1rem;
   }
 
+  .sm\:ml-20 {
+    margin-left: 1.25rem;
+  }
+
   .sm\:block {
     display: block;
   }
@@ -732,6 +749,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:justify-start {
     justify-content: flex-start;
+  }
+
+  .sm\:justify-center {
+    justify-content: center;
   }
 
   .sm\:justify-between {
