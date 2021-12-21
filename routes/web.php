@@ -30,3 +30,7 @@ Route::get('register', function () {
 Route::get('resetpassword', function () {
     return view('auth.reset-password');
 })->name('resetpassword');
+
+Route::get('setresetpassword', function () {
+    return view('auth.set-reset-password');
+})->name('setresetpassword');
