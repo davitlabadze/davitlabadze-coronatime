@@ -432,17 +432,20 @@ Ensure the default browser behavior of the `hidden` attribute.
 .-mt-px {
   margin-top: -1px;
 }
-.ml-108 {
-  margin-left: 6.75rem;
-}
 .mt-40 {
   margin-top: 2.5rem;
 }
-.mt-30 {
-  margin-top: 3.75rem;
+.mt-252 {
+  margin-top: 15.75rem;
 }
 .mt-16 {
   margin-top: 1rem;
+}
+.ml-108 {
+  margin-left: 6.75rem;
+}
+.mt-30 {
+  margin-top: 3.75rem;
 }
 .mt-24 {
   margin-top: 1.5rem;
@@ -471,8 +474,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-56 {
   margin-top: 3.5rem;
 }
-.mt-252 {
-  margin-top: 15.75rem;
+.ml-20 {
+  margin-left: 1.25rem;
+}
+.ml-0 {
+  margin-left: 0px;
+}
+.ml-107 {
+  margin-left: 6.688rem;
+}
+.-ml-108 {
+  margin-left: -6.75rem;
 }
 .block {
   display: block;
@@ -569,6 +581,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(15 186 104 / var(--tw-bg-opacity));
 }
+.bg-system-error {
+  --tw-bg-opacity: 1;
+  background-color: rgb(204 30 30 / var(--tw-bg-opacity));
+}
 .p-6 {
   padding: 1.5rem;
 }
@@ -663,6 +679,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: 1rem;
   }
 
+  .sm\:mr-16 {
+    margin-right: 1rem;
+  }
+
   .sm\:mt-24 {
     margin-top: 1.5rem;
   }
@@ -691,8 +711,12 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: 2.5rem;
   }
 
-  .sm\:mr-16 {
-    margin-right: 1rem;
+  .sm\:mt-214 {
+    margin-top: 13.375rem;
+  }
+
+  .sm\:ml-30 {
+    margin-left: 3.75rem;
   }
 
   .sm\:block {
@@ -725,6 +749,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .sm\:justify-between {
     justify-content: space-between;
+  }
+
+  .sm\:justify-self-start {
+    justify-self: start;
   }
 
   .sm\:rounded-lg {
