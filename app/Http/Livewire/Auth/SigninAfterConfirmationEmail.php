@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class SigninAfterConfirmationEmail extends Component
 {
     public function render()
     {
-        return view('livewire.signin-after-confirmation-email');
+        return view('livewire.auth.signin-after-confirmation-email');
     }
 }

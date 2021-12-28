@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class ConfirmationEmail extends Component
+class Country extends Component
 {
     public function render()
     {
-        return view('livewire.confirmation-email');
+        return view('livewire.country');
     }
 }

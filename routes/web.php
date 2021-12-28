@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Auth\Login;
+use App\Http\Livewire\Auth\Register;
+use App\Http\Livewire\Country;
+use App\Http\Livewire\Dashboard;
+use App\Http\Livewire\Worldwide;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,34 +18,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('components.layouts.app');
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('login', Login::class)->name('login');
+    Route::get('register', Register::class)->name('register');
 });
-
-Route::get('login', function () {
-    return view('auth.login');
-})->name('login');
-
-Route::get('register', function () {
-    return view('auth.register');
-})->name('register');
-
-Route::get('resetpassword', function () {
-    return view('auth.reset-password');
-})->name('resetpassword');
-
-Route::get('setresetpassword', function () {
-    return view('auth.set-reset-password');
-})->name('setresetpassword');
-
-Route::get('verify/email', function () {
-    return view('auth.confirmation-email');
-})->name('verifyemail');
-
-Route::get('verify/email/success', function () {
-    return view('auth.signin-after-confirmation-email');
-})->name('verifyemailsuccess');
-
-Route::get('successfully/updated/password', function () {
-    return view('auth.successfully-updated-password');
-})->name('successfullyupdatedpassword');
+Route::get('dashboard', Dashboard::class)->name('dashboard');
+Route::get('dashboard/worldwind', Worldwide::class)->name('worldwind');
+Route::get('dashboard/country', Country::class)->name('country');
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {
+        view('layouts.app');
+    });
+});
