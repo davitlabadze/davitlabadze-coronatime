@@ -633,6 +633,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-t {
   border-top-width: 1px;
 }
@@ -648,6 +651,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-inner-border {
   --tw-border-opacity: 1;
   border-color: rgb(230 230 231 / var(--tw-border-opacity));
+}
+.border-system-error {
+  --tw-border-opacity: 1;
+  border-color: rgb(204 30 30 / var(--tw-border-opacity));
 }
 .border-b-dark-4 {
   --tw-border-opacity: 1;
@@ -798,6 +805,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-system-error {
+  --tw-text-opacity: 1;
+  color: rgb(204 30 30 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -815,6 +826,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.outline-0 {
+  outline-width: 0px;
 }
 
 
