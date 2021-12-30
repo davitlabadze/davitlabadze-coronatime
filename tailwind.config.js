@@ -7,10 +7,8 @@ module.exports = {
       ],
   theme: {
     screens: {
-
         'sm': {'min': '375px', 'max': '767px'},
     },
-
     colors: {
        'dark-100': '#010414',
        'dark-60' : '#808189',
@@ -27,6 +25,10 @@ module.exports = {
        'dark-4' : '#F6F6F7',
        'dark-20': '#E6E6E7',
     },
+    animation:{
+        spin: 'spin 6s linear infinite',
+        spinreverse: 'spinreverse 6s linear infinite',
+    },
     fontSize: {
         megaxxl:['2.438rem', { lineHeight: '2.95rem'}],
         xxl: ['1.563rem', { lineHeight: '1.891rem' }],
@@ -35,10 +37,14 @@ module.exports = {
         18: '1.125rem',
         16: ['1rem', { lineHeight: '1.188rem' }],
         list: ['1.25rem',{ lineHeight: '1.513rem' }],
-
-
     },
     extend: {
+        keyframes: {
+            spinreverse: {
+              'from': { transform: 'rotate(90deg)' },
+              'to': { transform: 'rotate(-360deg)' },
+            }
+        },
         spacing: {
             1: '0.063rem',
             8: '0.5rem',
@@ -76,7 +82,6 @@ module.exports = {
             603: '37.688rem',
             900: '64.9rem',
         },
-
     },
   },
   plugins: [],
