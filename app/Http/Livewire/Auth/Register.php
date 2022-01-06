@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire\Auth;
 
+use Illuminate\Auth\Events\Registered;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class Register extends Component
@@ -15,8 +17,7 @@ class Register extends Component
     protected $rules = [
         'email'    => 'required|email|unique:users,email',
         'name'     => 'required|min:3|unique:users,name',
-        'password' => 'required|confirmed|min:3',
-        'password_confirmation' => 'required|min:3',
+        'password' => 'required|min:3|confirmed|same:password_confirmation',
     ];
 
     public function updated($propertyName)
@@ -29,13 +30,16 @@ class Register extends Component
     {
         $this->validate();
 
-        User::create([
+        $user = User::create([
             'email'    => $this->email,
             'name'     => $this->name,
             'password' => $this->password,
         ]);
+        event(new Registered($user));
 
-        return redirect()->route('login');
+        Auth::login($user);
+
+        return redirect()->route('verify');
     }
     public function render()
     {

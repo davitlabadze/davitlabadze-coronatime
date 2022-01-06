@@ -14,7 +14,7 @@
                 </div>
                 <div class="w-1 h-32 ml-16 mr-16 bg-dark-20" ></div>
                 <div>
-                    <a href="/" class="font-medium">Log Out</a>
+                   <livewire:logout/>
                 </div>
             </div>
         </div>
