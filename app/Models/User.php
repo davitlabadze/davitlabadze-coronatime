@@ -2,14 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Illuminate\Contracts\Auth\CanResetPassword;
 
-class User extends Authenticatable implements MustVerifyEmail
+// use Illuminate\Auth\Notifications\ResetPassword;
+
+// use App\Notifications\ResetPasswordNotification;
+
+class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -46,5 +51,35 @@ class User extends Authenticatable implements MustVerifyEmail
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
+    }
+
+
+
+    // /**
+    //  * Register any authentication / authorization services.
+    //  *
+    //  * @return void
+    //  */
+    // public function boot()
+    // {
+    //     $this->registerPolicies();
+
+    //     ResetPassword::createUrlUsing(function ($user, string $token) {
+    //         return 'https://example.com/reset-password?token='.$token;
+    //     });
+    // }
+
+
+    /**
+     * Send a password reset notification to the user.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $url = 'http://localhost:8000/reset-password/'.$token . '?email='. $this->email;
+
+        $this->notify(new ResetPassword($url));
     }
 }

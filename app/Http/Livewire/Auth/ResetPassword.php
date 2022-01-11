@@ -3,32 +3,32 @@
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
-use Illuminate\Auth\Events\PasswordReset;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Support\Facades\Password;
-use Illuminate\Support\Str;
 
 class ResetPassword extends Component
 {
-    // public $email;
+    public $email;
 
-    // protected $rules = [
-    //     'email' => 'required|email'
-    // ];
+    protected $rules = [
+        'email' => 'required|email|exists:users,email'
+    ];
 
-    // public function submit(Request $request)
-    // {
-    //     $this->validate();
-    //     $status = Password::sendResetLink(
-    //         $request->only('email')
-    //     );
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
-    //     return $status === Password::RESET_LINK_SENT
-    //                 ? back()->with(['status' => __($status)])
-    //                 : back()->withErrors(['email' => __($status)]);
-    //     // ->redirect()->route('password.email');
-    // }
+    public function submit()
+    {
+        $status = Password::sendResetLink(
+            $this->validate()
+        );
+
+        return $status === Password::RESET_LINK_SENT
+        ? redirect()->route('verify')->with(['status' => __($status)])
+        : back()->withErrors(['email' => __($status)]);
+    }
 
     public function render()
     {

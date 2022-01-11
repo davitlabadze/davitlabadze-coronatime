@@ -700,6 +700,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .overflow-y-scroll {
   overflow-y: scroll;
 }
+.break-all {
+  word-break: break-all;
+}
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -773,6 +776,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-24 {
   padding: 1.5rem;
+}
+.p-96 {
+  padding: 24rem;
 }
 .py-4 {
   padding-top: 1rem;
@@ -889,13 +895,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(128 129 137 / var(--tw-text-opacity));
 }
-.text-dark-fff {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
 .text-system-error {
   --tw-text-opacity: 1;
   color: rgb(204 30 30 / var(--tw-text-opacity));
+}
+.text-dark-fff {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -915,8 +921,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.outline-none {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
 .outline-0 {
   outline-width: 0px;
+}
+.outline-brand-primery {
+  outline-color: #2029F3;
+}
+.outline-brand-primery\/50 {
+  outline-color: rgb(32 41 243 / 0.5);
+}
+.outline-dark-fff {
+  outline-color: #ffffff;
 }
 
 
