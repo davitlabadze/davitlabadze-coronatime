@@ -618,6 +618,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-96 {
   width: 24rem;
 }
+.w-80 {
+  width: 5rem;
+}
 .max-w-6xl {
   max-width: 72rem;
 }
@@ -777,9 +780,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-24 {
   padding: 1.5rem;
 }
-.p-96 {
-  padding: 24rem;
-}
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -930,9 +930,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .outline-brand-primery {
   outline-color: #2029F3;
-}
-.outline-brand-primery\/50 {
-  outline-color: rgb(32 41 243 / 0.5);
 }
 .outline-dark-fff {
   outline-color: #ffffff;

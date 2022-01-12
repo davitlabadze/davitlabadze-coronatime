@@ -1,6 +1,6 @@
 <div>
     <div>
-        <h1 class="py-40 font-black ml-108 text-xxl">@if ($status === 'worldwind') Worldwide Statistics @else Statistics by country @endif</h1>
+        <h1 class="py-40 font-black ml-108 text-xxl">@if ($status === 'worldwind') {{ __("Worldwide Statistics") }} @else {{ __("Statistics by country") }} @endif</h1>
     </div>
     <div class="p-2 border-b border-b-dark-4 px-108">
         <ul class="flex">

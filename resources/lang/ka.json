@@ -1,0 +1,29 @@
+{
+    "Welcome back" : "კეთილი იყოს თქვენი დაბრუნება",
+    "Welcome back! Please enter your details" : "კეთილი იყოს თქვენი დაბრუნება! გთხოვთ შეიყვანოთ თქვენი დეტალები",
+    "Username" : "მომხმარებლის სახელი",
+    "Enter unique username or email": "შეიყვანეთ სახელი ან ელფოსტა",
+    "Password" : "პაროლი",
+    "Fill in password" : "შეიყვანეთ პაროლი",
+    "Remember this device" : "დამახსოვრება",
+    "Forgot password?": "დაგავიწყდათ პაროლი?",
+    "LOG IN": "ავტორიზაცია",
+    "Don't have and account?" : "არ გაქვთ და ანგარიში?",
+    "Sign up for free": "რეგისტრაცია",
+
+
+    "Welcome to Coronatime": "კეთილი იყოს თქვენი მობრძანება კორონათაიმზე",
+    "Please enter required info to sign up" : "რეგისტრაციისთვის შეიყვანეთ მოთხოვნილი ინფორმაცია",
+    "Enter unique username": "შეიყვანეთ მომხმარებლის სახელი",
+    "Email":"ელ-ფოსტა",
+    "Enter your email": "შეიყვანეთ ელ-ფოსტა",
+    "Repeat Password":"გაიმეორეთ პაროლი",
+    "SIGN UP": "რეგისტრაცია",
+    "Already have an account?": "უკვე გაქვთ ანგარიში?",
+    "Log in": "შესვლა",
+
+
+    "Worldwide Statistics":"მსოფლიო სტატისტიკა",
+    "Statistics by country":"სტატისტიკა ქვეყნების მიხედვით"
+
+}

@@ -37,9 +37,9 @@ class Register extends Component
         ]);
         event(new Registered($user));
 
-        Auth::login($user);
+        Auth::login($user, app()->getLocale());
 
-        return redirect()->route('verify');
+        return redirect()->route('verify', app()->getLocale());
     }
     public function render()
     {
