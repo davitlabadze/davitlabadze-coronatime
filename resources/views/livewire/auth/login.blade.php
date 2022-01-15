@@ -1,15 +1,13 @@
 <div>
     <div class="flex ">
         <div class="w-full ml-108 sm:ml-16 ">
+            <div class="flex">
+                <img src="{{ asset('/img/logo.svg') }}" alt="logo" class="mt-40 sm:mt-24 ">
+                <livewire:change-lang/>
+               </div>
+
             <form action="#" wire:submit.prevent="submit">
                 @csrf
-                <li class="border rounded-lg cursor-pointer bg-brand-secondary w-80">
-                    <a href="{{ route(Route::currentRouteName(),'en') }}">en</a>
-                </li>
-                <li class="border rounded-lg cursor-pointer bg-brand-secondary w-80">
-                    <a href="{{ route(Route::currentRouteName(),'ka') }}">ka</a>
-                </li>
-                <img src="{{ asset('/img/logo.svg') }}" alt="logo" class="mt-40 sm:mt-24 ">
                 <div class="mt-30 sm:mt-43">
                     <h1 class="font-black text-dark-100 text-xxl">{{__('Welcome back') }}</h1>
                     <p class="mt-16 font-normal text-dark-60 sm:mt-8">{{ __('Welcome back! Please enter your details') }}</p>

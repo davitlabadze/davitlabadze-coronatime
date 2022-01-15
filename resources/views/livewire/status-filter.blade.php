@@ -8,13 +8,13 @@
                 <a
                 href="#"
                 wire:click.prevent="setStatus('worldwind')"
-                class="@if ($status === 'worldwind') font-black p-2  border-b-4 border-b-dark-100 @endif">Worldwide</a>
+                class="@if ($status === 'worldwind') font-black p-2  border-b-4 border-b-dark-100 @endif">{{ __("Worldwide") }}</a>
             </li>
             <li class="ml-72">
                 <a
                 href="#"
                 wire:click.prevent="setStatus('country')"
-                class="@if ($status === 'country')  font-black p-2  border-b-4 border-b-dark-100 @endif">By country</a>
+                class="@if ($status === 'country')  font-black p-2  border-b-4 border-b-dark-100 @endif">{{ __("By country") }}</a>
             </li>
         </ul>
     </div>

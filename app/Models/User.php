@@ -53,23 +53,6 @@ class User extends Authenticatable implements MustVerifyEmail, CanResetPassword
         $this->attributes['password'] = bcrypt($value);
     }
 
-
-
-    // /**
-    //  * Register any authentication / authorization services.
-    //  *
-    //  * @return void
-    //  */
-    // public function boot()
-    // {
-    //     $this->registerPolicies();
-
-    //     ResetPassword::createUrlUsing(function ($user, string $token) {
-    //         return 'https://example.com/reset-password?token='.$token;
-    //     });
-    // }
-
-
     /**
      * Send a password reset notification to the user.
      *

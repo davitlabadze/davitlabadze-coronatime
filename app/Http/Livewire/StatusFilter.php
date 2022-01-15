@@ -29,10 +29,12 @@ class StatusFilter extends Component
         if ($this->status === 'worldwind') {
             return redirect()->route('worldwind', [
                 'status' => $this->status,
+                app()->getLocale()
             ]);
         } else {
             return redirect()->route('country', [
                 'status' => $this->status,
+                app()->getLocale()
             ]);
         }
     }

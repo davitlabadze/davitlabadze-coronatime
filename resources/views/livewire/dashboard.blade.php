@@ -4,10 +4,7 @@
             <img src="{{ asset('img/logo.svg') }}" alt="coronatime logo">
             <div class="flex items-center justify-end w-full">
                 <div class="mr-40 text-16">
-                    <select name="lang" id="lang" class="border-none bg-dark-fff">
-                        <option value="ka">ქართული</option>
-                        <option value="en">English</option>
-                    </select>
+                    <x-changelang/>
                 </div>
                 <div>
                     <h1 class="font-bold text-16">Takeshi K.</h1>

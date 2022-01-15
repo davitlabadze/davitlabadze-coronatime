@@ -46,7 +46,7 @@ class SetResetPassword extends Component
             }
         );
         return $status === Password::PASSWORD_RESET
-        ? redirect()->route('password.update')->with('status', __($status))
+        ? redirect()->route('password.update', app()->getLocale())->with('status', __($status))
         : back()->withErrors(['email' => [__($status)]]);
     }
 

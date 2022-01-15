@@ -21,9 +21,25 @@
     "SIGN UP": "რეგისტრაცია",
     "Already have an account?": "უკვე გაქვთ ანგარიში?",
     "Log in": "შესვლა",
+    "Log Out": "გასვლა",
 
 
     "Worldwide Statistics":"მსოფლიო სტატისტიკა",
-    "Statistics by country":"სტატისტიკა ქვეყნების მიხედვით"
+    "Statistics by country":"სტატისტიკა ქვეყნების მიხედვით",
+    "Worldwide":"მსოფლიო მასშტაბით",
+    "By country": "ქვეყნების მიხედვით",
+    "Location":"მდებარეობა",
+    "New cases": "ახალი შემთხვევები",
+    "Deaths":"გარდაცვლილთა რაოდენობა",
+    "Recovered":"გამოჯანმრთელდა",
+
+    "Reset Password": "პაროლის აღდგენა",
+    "New Password" : "ახალი პაროლი",
+    "Enter new password": "შეიყვანე ახალი პაროლი",
+    "SAVE CHANGES": "ცვლილების შენახვა",
+    "We have sent you a confirmation email": "ჩვენ გამოგიგზავნეთ დამადასტურებელი ელ.წერილი",
+    "Your account is confirmed, you can sign in":"თქვენი ანგარიში დადასტურებულია, შეგიძლიათ შეხვიდეთ",
+    "SIGN IN":"შესვლა",
+    "Your password has been updated successfully":"თქვენი პაროლი წარმატებით განახლდა"
 
 }

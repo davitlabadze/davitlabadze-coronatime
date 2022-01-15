@@ -11,7 +11,7 @@ class Logout extends Component
     {
         Auth::logout();
 
-        return redirect()->route('login');
+        return redirect()->route('login', app()->getLocale());
     }
     public function render()
     {

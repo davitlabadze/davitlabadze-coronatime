@@ -26,7 +26,7 @@ class ResetPassword extends Component
         );
 
         return $status === Password::RESET_LINK_SENT
-        ? redirect()->route('verify')->with(['status' => __($status)])
+        ? redirect()->route('verify', app()->getLocale())->with(['status' => __($status)])
         : back()->withErrors(['email' => __($status)]);
     }
 

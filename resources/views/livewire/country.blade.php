@@ -6,24 +6,24 @@
             <thead class="flex w-full bg-dark-4">
                 <tr class="flex w-full ">
                     <th scope="col" class="w-1/4 py-20 font-semibold text-dark-100 text-xxs">
-                        Location
+                            {{ __("Location") }}
                         {{-- <div class="px-2 py-1 ">
                             <button> <img src="{{ asset('img/asc.svg') }}" alt="" class="mb-1"></button>
                             <button><img src="{{ asset('img/desc.svg') }}" alt=""></button>
                         </div> --}}
                     </th>
                     <th scope="col" class="w-1/4 py-20 font-semibold text-dark-100 text-xxs">
-                        New cas
+                        {{ __("New cases") }}
                         {{-- <div class="px-2 py-1 ">
                             <button> <img src="{{ asset('img/asc.svg') }}" alt="" class="mb-1"></button>
                             <button><img src="{{ asset('img/desc.svg') }}" alt=""></button>
                         </div> --}}
                     </th>
                     <th scope="col" class="w-1/4 py-20 font-semibold text-dark-100 text-xxs">
-                        Deaths
+                        {{ __("Deaths") }}
                     </th>
                     <th scope="col" class="w-1/4 py-20 font-semibold text-dark-100 text-xxs">
-                        Recovered
+                        {{ __("Recovered") }}
                     </th>
                 </tr>
             </thead>

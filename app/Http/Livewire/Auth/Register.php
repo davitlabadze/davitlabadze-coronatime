@@ -35,9 +35,11 @@ class Register extends Component
             'name'     => $this->name,
             'password' => $this->password,
         ]);
+
         event(new Registered($user));
 
-        Auth::login($user, app()->getLocale());
+
+        Auth::login($user);
 
         return redirect()->route('verify', app()->getLocale());
     }

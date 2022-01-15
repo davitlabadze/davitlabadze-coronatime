@@ -17,12 +17,6 @@ class Login extends Component
         'password' => 'required|min:3',
     ];
 
-    // public function mount()
-    // {
-    //     $this->livewireLocale = app()->getLocale();
-    // }
-
-
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -32,14 +26,13 @@ class Login extends Component
     public function submit()
     {
         $this->validate();
-        // dd($this->name, $this->password);
         $user = Auth::attempt([
             'name'     => $this->name,
             'password' => $this->password,
         ]);
 
         event(new Auth($user));
-        // dd($user);
+
         return redirect(route('dashboard', app()->getLocale()));
     }
     public function render()
