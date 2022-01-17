@@ -14,7 +14,7 @@
                         @error('password')
                              <span class="flex mt-2 text-system-error">
                                  <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
-                                {{ $message }}
+                                {{ __($message) }}
                             </span>
                         @enderror
                     </div>
@@ -24,7 +24,7 @@
                         @error('password_confirmation')
                             <span class="absolute flex mt-2 text-system-error">
                                 <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
-                                {{ $message }}
+                                {{ __($message) }}
                             </span>
                         @enderror
                     </div>

@@ -14,12 +14,12 @@
                     <div class="mt-24">
                         <label for="username" class="block font-bold text-dark-100 text-xxs">{{ __('Username') }}</label>
                         <input class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343" type="text" placeholder="{{ __('Enter unique username or email') }}"  wire:model="name" />
-                        @error('name') <span class="text-system-error">{{ $message }}</span> @enderror
+                        @error('name') <span class="text-system-error">{{ __($message) }}</span> @enderror
                     </div>
                     <div class="mt-24">
                         <label for="password" class="block font-bold text-dark-100 text-xxs">{{ __('Password') }}</label>
                         <input class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343" type="password" placeholder="{{ __('Fill in password') }}"  wire:model="password"/>
-                        @error('password') <span class="text-system-error">{{ $message }}</span> @enderror
+                        @error('password') <span class="text-system-error">{{ __($message) }}</span> @enderror
                     </div>
                     <div class="flex mt-25">
                        <div class="flex">

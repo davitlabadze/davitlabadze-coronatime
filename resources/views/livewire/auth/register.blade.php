@@ -16,23 +16,23 @@
                     <div class="mt-24">
                         <label for="username" class="block font-bold text-dark-100 text-xxs">{{ __("Username") }}</label>
                         <input id="name" class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343 outline-0 @error('name') border-2 border-system-error  @enderror"  type="name" wire:model="name" placeholder="{{ __("Enter unique username") }}" value="{{ old('name') }}" required autocomplete="name"  />
-                        @error('name') <span class="text-system-error">{{ $message }}</span> @enderror
+                        @error('name') <span class="text-system-error">{{ __($message) }}</span> @enderror
 
                     </div>
                     <div class="mt-24">
                         <label for="email" class="block font-bold text-dark-100 text-xxs">{{ __("Email") }}</label>
                         <input id="email" class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343 outline-0 @error('email') border-2 border-system-error  @enderror" type="email" wire:model="email" placeholder="{{ __("Enter your email") }}" />
-                        @error('email') <span class="text-system-error"">{{ $message }}</span> @enderror
+                        @error('email') <span class="text-system-error"">{{ __($message) }}</span> @enderror
                     </div>
                     <div class="mt-24">
                         <label for="password" class="block font-bold text-dark-100 text-xxs">{{ __("Password") }}</label>
                         <input id="password" class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343 outline-0 @error('password') border-2 border-system-error  @enderror" type="password" wire:model="password" placeholder="{{ __("Fill in password") }}" />
-                        @error('password') <span class="text-system-error"">{{ $message }}</span> @enderror
+                        @error('password') <span class="text-system-error"">{{ __($message) }}</span> @enderror
                     </div>
                     <div class="mt-24">
                         <label for="confir-password" class="block font-bold text-dark-100 text-xxs">{{ __("Repeat Password") }}</label>
                         <input id="password-confirmation" class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343 outline-0 @error('password_confirmation') border-2 border-system-error  @enderror" type="password" wire:model="password_confirmation" placeholder="{{ __("Repeat Password") }}" />
-                        @error('password_confirmation') <span class="text-system-error"">{{ $message }}</span> @enderror
+                        @error('password_confirmation') <span class="text-system-error"">{{ __($message) }}</span> @enderror
                     </div>
 
                     <button type="submit" value="register" class="h-56 rounded-lg bg-brand-secondary w-392 mt-26 sm:w-343 outline-0"><p class="font-black text-dark-fff">{{ __("SIGN UP") }}</p></button>

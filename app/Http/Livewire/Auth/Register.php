@@ -15,9 +15,10 @@ class Register extends Component
     public $password_confirmation;
 
     protected $rules = [
-        'email'    => 'required|email|unique:users,email',
-        'name'     => 'required|min:3|unique:users,name',
-        'password' => 'required|min:3|confirmed|same:password_confirmation',
+        'email'                 => 'required|email|unique:users,email',
+        'name'                  => 'required|min:3|unique:users,name',
+        'password'              => 'required|min:3',
+        'password_confirmation' => 'required|min:3|same:password',
     ];
 
     public function updated($propertyName)
