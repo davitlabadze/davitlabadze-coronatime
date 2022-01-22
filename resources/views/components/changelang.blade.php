@@ -1,6 +1,5 @@
 <div x-data="{isOpen:false}">
     <button @click="isOpen = !isOpen" class="relative flex border-none bg-dark-fff">
-
         @if(session()->get('lang') === "en")
             English
             @else
@@ -17,8 +16,8 @@
                 <a href="{{ route('change-lang','ka') }}" class="w-32 p-2 border rounded-lg cursor-pointer text-dark-100 hover:bg-brand-secondary hover:text-dark-fff">ქართული</a>
             </li>
         </ul>
-       <div class="mt-2 ml-2">
-        <img src="{{ asset('img/dropdown.svg') }}" alt="">
+       <div class="w-3 h-3 mt-2 ml-2">
+        <img src="{{ asset('img/dropdown.svg') }}" alt="dropdown">
        </div>
     </button>
 </div>

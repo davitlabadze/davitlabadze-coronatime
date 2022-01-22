@@ -7,7 +7,8 @@ module.exports = {
       ],
   theme: {
     screens: {
-        'sm': {'min': '375px', 'max': '767px'},
+        'lg':{'min': '1441px', 'max': '19208px'},
+        'sm': {'min': '321px', 'max': '375px'},
     },
     colors: {
        'dark-100': '#010414',
@@ -34,17 +35,31 @@ module.exports = {
         xxl: ['1.563rem', { lineHeight: '1.891rem' }],
         xxm: ['1rem', { lineHeight: '1.21rem' }],
         xxs: ['0.875rem', { lineHeight: '1.059rem' }],
+        s: ['0.8rem'],
+        ss: ['0.5rem'],
         18: '1.125rem',
         16: ['1rem', { lineHeight: '1.188rem' }],
         list: ['1.25rem',{ lineHeight: '1.513rem' }],
+    },
+    backgroundPosition:{
+        'left-1': '1rem',
     },
     extend: {
         keyframes: {
             spinreverse: {
               'from': { transform: 'rotate(90deg)' },
               'to': { transform: 'rotate(-360deg)' },
-            }
+            },
+            drop: {
+                'from': { right: '15px' },
+                'to': { right: '200px' },
+              }
         },
+        backgroundImage: {
+            'search': "url('/img/search.svg')",
+        },
+
+
         spacing: {
             1: '0.063rem',
             8: '0.5rem',
@@ -72,6 +87,8 @@ module.exports = {
             144: '9rem',
             148: '9.25rem',
             151: '9.438rem',
+            164: '10.25rem',
+            193: '12.063rem',
             214: '13.375rem',
             252: '15.75rem',
             255: '15.938rem',
@@ -84,5 +101,7 @@ module.exports = {
         },
     },
   },
-  plugins: [],
+  plugins: [
+    // require('@tailwindcss/forms'),
+  ],
 }

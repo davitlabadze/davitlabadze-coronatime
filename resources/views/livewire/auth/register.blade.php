@@ -1,15 +1,10 @@
 <div>
     <div class="flex ">
         <div class="w-full ml-108 sm:ml-16 ">
-            <li class="border rounded-lg cursor-pointer bg-brand-secondary w-80">
-                <a href="{{ route(Route::currentRouteName(),'en') }}">en</a>
-            </li>
-            <li class="border rounded-lg cursor-pointer bg-brand-secondary w-80">
-                <a href="{{ route(Route::currentRouteName(),'ka') }}">ka</a>
-            </li>
+            <x-header/>
+
             <form action="#" wire:submit.prevent="submit">
 
-                <img src="{{ asset('/img/logo.svg') }}" alt="logo" class="mt-40 sm:mt-24 ">
                 <div class="mt-30 sm:mt-43">
                     <h1 class="font-black text-dark-100 text-xxl">{{ __('Welcome to Coronatime') }}</h1>
                     <p class="mt-16 font-normal text-dark-60 sm:mt-8">{{ __("Please enter required info to sign up") }}</p>

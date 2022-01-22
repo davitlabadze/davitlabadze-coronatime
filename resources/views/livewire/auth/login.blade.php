@@ -1,11 +1,7 @@
 <div>
     <div class="flex ">
         <div class="w-full ml-108 sm:ml-16 ">
-            <div class="flex">
-                <img src="{{ asset('/img/logo.svg') }}" alt="logo" class="mt-40 sm:mt-24 ">
-                <livewire:change-lang/>
-               </div>
-
+            <x-header/>
             <form action="#" wire:submit.prevent="submit">
                 @csrf
                 <div class="mt-30 sm:mt-43">
