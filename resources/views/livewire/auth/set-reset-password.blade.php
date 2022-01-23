@@ -10,17 +10,29 @@
                 <div class="mt-56 sm:mt-40">
                     <div class="mt-24 sm:mr-16">
                         <label for="password" class="block font-bold text-dark-100 text-xxs sm:ml-16">{{ __("New Password") }}</label>
-                        <input id="password" name="password" wire:model="password" class="h-56 p-24 mt-8 border  outline-brand-primery rounded w-392 border-inner-border  sm:w-343 @error('password') border-2 border-system-error outline-none  outline-dark-fff @enderror"  type="password" placeholder="{{ __("Enter new password") }}" />
+                        <input id="password" name="password" wire:model="password"
+                        class="h-56 p-24 mt-8 border outline-brand-primery  rounded w-392 border-inner-border sm:w-343
+                        @error('password') border-2 border-system-error @enderror
+                        @if(!$errors->has('password') && Str::length($password) >=3)
+                        border-2 border-system-succes bg-success bg-no-repeat bg-right-1 sm:bg-right-sm
+                        @endif"
+                        type="password" placeholder="{{ __("Enter new password") }}" />
                         @error('password')
-                             <span class="flex mt-2 text-system-error">
+                             <span class="absolute flex mt-2 text-system-error">
                                  <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
                                 {{ __($message) }}
                             </span>
                         @enderror
                     </div>
-                    <div class="mt-24">
+                    <div class="mt-40 sm:mr-16">
                         <label for="password_confirmation" class="block font-bold text-dark-100 text-xxs sm:ml-16">{{ __("Repeat Password") }}</label>
-                        <input id="password_confirmation" wire:model="password_confirmation" name="password_confirmation" class="h-56 p-24 mt-8 border outline-brand-primery  outline-2-brand-primery rounded w-392 border-inner-border sm:w-343 @error('password_confirmation') border-2 border-system-error outline-none  outline-dark-fff  @enderror" type="password" placeholder="{{ __("Repeat Password") }}" />
+                        <input id="password_confirmation" wire:model="password_confirmation" name="password_confirmation"
+                        class="h-56 p-24 mt-8 border outline-brand-primery  rounded w-392 border-inner-border sm:w-343
+                        @error('password_confirmation') border-2 border-system-error @enderror
+                        @if(!$errors->has('password_confirmation') && Str::length($password_confirmation) >=3)
+                        border-2 border-system-succes bg-success bg-no-repeat bg-right-1 sm:bg-right-sm
+                        @endif"
+                        type="password" placeholder="{{ __("Repeat Password") }}" />
                         @error('password_confirmation')
                             <span class="absolute flex mt-2 text-system-error">
                                 <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">

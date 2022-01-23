@@ -9,17 +9,41 @@
                     <p class="mt-16 font-normal text-dark-60 sm:mt-8">{{ __('Welcome back! Please enter your details') }}</p>
                     <div class="mt-24">
                         <label for="username" class="block font-bold text-dark-100 text-xxs">{{ __('Username') }}</label>
-                        <input class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343" type="text" placeholder="{{ __('Enter unique username or email') }}"  wire:model="name" />
-                        @error('name') <span class="text-system-error">{{ __($message) }}</span> @enderror
+                        <input
+                        class="outline-brand-primery h-56 p-24 mt-8 border rounded w-392 border-inner-border  sm:w-343
+                        @error('name') border-2 border-system-error  @enderror
+                        @if(Str::length($name) >=3)
+                        border-2 border-system-succes bg-success bg-no-repeat bg-right-1 sm:bg-right-sm
+                        @endif"
+                        type="text"
+                        placeholder="{{ __('Enter unique username or email') }}"
+                        wire:model="name" />
+                        @error('name')
+                             <span class="flex mt-2 text-system-error">
+                                 <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
+                                {{ __($message) }}
+                            </span>
+                        @enderror
+
                     </div>
                     <div class="mt-24">
                         <label for="password" class="block font-bold text-dark-100 text-xxs">{{ __('Password') }}</label>
-                        <input class="h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343" type="password" placeholder="{{ __('Fill in password') }}"  wire:model="password"/>
-                        @error('password') <span class="text-system-error">{{ __($message) }}</span> @enderror
+                        <input class="outline-brand-primery h-56 p-24 mt-8 border rounded w-392 border-inner-border sm:w-343
+                        @error('password') border-2 border-system-error  @enderror
+                        @if(Str::length($password) >=3)
+                        border-2 border-system-succes bg-success bg-no-repeat bg-right-1 sm:bg-right-sm
+                        @endif"
+                        type="password" placeholder="{{ __('Fill in password') }}"  wire:model="password"/>
+                        @error('password')
+                        <span class="flex mt-2 text-system-error">
+                            <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
+                           {{ __($message) }}
+                       </span>
+                   @enderror
                     </div>
                     <div class="flex mt-25">
                        <div class="flex">
-                        <input type="checkbox" class="w-20 h-20 mt-1 border-inner-border sm:mt-0"/>
+                        <input type="checkbox" class="w-20 h-20 mt-1 border-inner-border accent-system-succes focus:accent-system-succes sm:mt-0"/>
                         <p class="ml-8 font-semibold text-dark-100 sm:text-xxs">{{ __('Remember this device') }}</p>
                        </div>
                         <a href="{{ route('password.request',app()->getLocale()) }}" class="font-semibold cursor-pointer text-brand-primery ml-30 sm:text-xxs ml-42">{{ __('Forgot password?') }}</a>

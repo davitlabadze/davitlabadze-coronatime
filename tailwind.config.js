@@ -43,6 +43,9 @@ module.exports = {
     },
     backgroundPosition:{
         'left-1': '1rem',
+        'right-1': '22rem',
+        'right-sm': '19rem',
+
     },
     extend: {
         keyframes: {
@@ -57,6 +60,7 @@ module.exports = {
         },
         backgroundImage: {
             'search': "url('/img/search.svg')",
+            'success':  "url('/img/validate/success.svg')",
         },
 
 
