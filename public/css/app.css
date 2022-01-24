@@ -564,9 +564,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-94 {
   margin-top: 5.875rem;
 }
-.mt-32 {
-  margin-top: 2rem;
-}
 .block {
   display: block;
 }
@@ -846,9 +843,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-right-1 {
   background-position: 22rem;
 }
-.bg-right-sm {
-  background-position: 19rem;
-}
 .bg-no-repeat {
   background-repeat: no-repeat;
 }
@@ -1019,10 +1013,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.outline-none {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
 }
 .outline-0 {
   outline-width: 0px;

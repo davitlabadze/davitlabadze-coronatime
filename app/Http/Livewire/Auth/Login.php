@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -10,6 +11,8 @@ class Login extends Component
     public $email;
     public $name;
     public $password;
+    public $user;
+
 
     protected $rules = [
         // 'email'    => 'required|email',
@@ -22,16 +25,16 @@ class Login extends Component
         $this->validateOnly($propertyName);
     }
 
-
     public function submit()
     {
         $this->validate();
-        $user = Auth::attempt([
-            'name'     => $this->name,
+        $fieldType = filter_var($this->name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+        $auth = Auth::attempt([
+            $fieldType   => $this->name,
             'password' => $this->password,
         ]);
 
-        event(new Auth($user));
+        event(new Auth($auth));
 
         return redirect(route('dashboard', app()->getLocale()));
     }
