@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\CountryApiController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Livewire\Auth\ConfirmationEmail;
@@ -14,7 +16,8 @@ use App\Http\Livewire\Country;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Worldwide;
 
-Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
+// Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
+// Route::get('/', [CountryApiController::class,'show'])->name('show-data');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)->name('login');

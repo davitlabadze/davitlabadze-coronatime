@@ -39,216 +39,24 @@
                 </tr>
             </thead>
             <tbody class="flex flex-col overflow-y-scroll divide-y h-500 bg-dark-fff divide-dark-4 sm:w-96">
+               @foreach ($countries as $country)
                 <tr class="flex items-center w-full text-center">
                     <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
+                        {{  $country->name  }}
                     </td>
                     <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
+                        {{  $country->statistics->confirmed  }}
                     </td>
                     <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
+                        {{  $country->statistics->deaths  }}
                     </td>
                     <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
+                        {{  $country->statistics->recovered  }}
                     </td>
                 </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
-                <tr class="flex items-center w-full text-center">
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        Georiga
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        452323
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        0
-                    </td>
-                    <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                        2324
-                    </td>
-                </tr>
+               @endforeach
+
+
 
             </tbody>
         </table>
