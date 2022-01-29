@@ -27,10 +27,12 @@ class Worldwide extends Component
         for ($i = 0; $i < count($deathss); $i++) {
             $deaths += $deathss[$i];
         }
+        $user = auth()->user();
         return view('livewire.worldwide', [
             'confirmed' => $confirmed,
             'recovered' => $recovered,
-            'deaths'    => $deaths
+            'deaths'    => $deaths,
+            'user' => $user,
         ]);
     }
 }

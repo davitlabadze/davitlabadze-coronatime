@@ -9,7 +9,12 @@ class Country extends Component
 {
     public function render()
     {
+        $user = auth()->user();
         $countries = CountryApi::all();
-        return view('livewire.country', ['countries' => $countries]);
+
+        return view('livewire.country', [
+            'user' => $user,
+            'countries' => $countries
+        ]);
     }
 }
