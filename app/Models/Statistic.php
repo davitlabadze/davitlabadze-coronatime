@@ -12,6 +12,6 @@ class Statistic extends Model
 
     public function country()
     {
-        return $this->hasOne(CountryApi::class);
+        return $this->belongsTo(CountryApi::class);
     }
 }
