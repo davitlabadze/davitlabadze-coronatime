@@ -13,6 +13,7 @@ class Login extends Component
     public $password;
     public $user;
 
+
     protected $rules = [
         'name'     => 'required|min:3',
         'password' => 'required|min:3',
@@ -23,19 +24,33 @@ class Login extends Component
         $this->validateOnly($propertyName);
     }
 
+
     public function submit()
     {
         $this->validate();
+
         $fieldType = filter_var($this->name, FILTER_VALIDATE_EMAIL) ? 'email' : 'name';
+
         $auth = Auth::attempt([
-            $fieldType   => $this->name,
+            $fieldType => $this->name,
             'password' => $this->password,
         ]);
 
+
+        $user = Auth::user();
+        if ($user) {
+            if (!$user->hasVerifiedEmail()) {
+                Auth::logout();
+                return redirect()->route('verify');
+            }
+        }
+
+
         event(new Auth($auth));
 
-        return redirect(route('worldwide', app()->getLocale()));
+        return  redirect(route('worldwide', app()->getLocale()));
     }
+
     public function render()
     {
         return view('livewire.auth.login');
