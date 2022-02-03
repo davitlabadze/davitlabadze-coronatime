@@ -11,7 +11,6 @@ use App\Http\Livewire\Auth\SetResetPassword;
 use App\Http\Livewire\Auth\SigninAfterConfirmationEmail;
 use App\Http\Livewire\Auth\SuccessfullyUpdatedPassword;
 use App\Http\Livewire\Country;
-use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Worldwide;
 
 Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
@@ -22,10 +21,6 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/', function () {
-        view('layouts.app');
-    });
-
     Route::get('dashboard/worldwide', Worldwide::class)->name('worldwide');
     Route::get('dashboard/country', Country::class)->name('country');
     Route::get('signin', SigninAfterConfirmationEmail::class)->name('signed');
@@ -33,11 +28,9 @@ Route::middleware('auth')->group(function () {
 
 Route::get('verify', ConfirmationEmail::class)->name('verify');
 
-
 Route::get('email/verify', function () {
     return redirect()->route('verify', app()->getLocale());
 })->middleware(['auth'])->name('verification.notice');
-
 
 Route::get('email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
     $request->fulfill();
