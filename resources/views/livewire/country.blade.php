@@ -9,36 +9,69 @@
             <table class="w-full rounded-lg sm:w-96">
                 <thead class="flex w-full bg-dark-4 sm:w-96 ">
                     <tr class="flex w-full">
-                        <th wire:click.prevent="countries" scope="col"
+                        <th wire:click.prevent="setFilter('countries')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Location') }}
                             <div class="py-1 ml-2">
-                                <a class="mt-2"><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
-                                <a><img src="{{ asset('img/adesc.svg') }}" alt="down"></a>
+                                @if ($filteredByCountries === true)
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
+                                @elseif($filteredByCountries === false)
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @else
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @endif
                             </div>
                         </th>
-                        <th wire:click.prevent="confirmed" scope="col"
+
+                        <th wire:click.prevent="setFilter('confirmed')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('New cases') }}
                             <div class="py-1 ml-2">
-                                <a class="mt-2"><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
-                                <a><img src="{{ asset('img/adesc.svg') }}" alt="down"></a>
+                                @if ($filteredByConfirmed === true)
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
+                                @elseif($filteredByConfirmed === false)
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @else
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @endif
                             </div>
                         </th>
-                        <th wire:click.prevent="deaths" scope="col"
+                        <th wire:click.prevent="setFilter('deaths')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Deaths') }}
                             <div class="py-1 ml-2">
-                                <a class="mt-2"><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
-                                <a><img src="{{ asset('img/adesc.svg') }}" alt="down"></a>
+                                @if ($filteredByDeaths === true)
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
+                                @elseif($filteredByDeaths === false)
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @else
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @endif
                             </div>
                         </th>
-                        <th wire:click.prevent="recovered" scope="col"
+                        <th wire:click.prevent="setFilter('recovered')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Recovered') }}
                             <div class="py-1 ml-2">
-                                <a class="mt-2"><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
-                                <a><img src="{{ asset('img/adesc.svg') }}" alt="down"></a>
+                                @if ($filteredByRecovered === true)
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
+                                @elseif($filteredByRecovered === false)
+                                    <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @else
+                                    <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
+                                    <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
+                                @endif
                             </div>
                         </th>
                     </tr>
@@ -61,8 +94,8 @@
                         </tr>
                     @empty
                         <tr class="flex items-center w-full text-center">
-                            <td class="w-1/4 px-40 py-16 font-normal text-dark-100 text-xxs sm:text-ss">
-                                Not this country
+                            <td class="w-full px-40 font-normal py-164 text-dark-100 text-xxs sm:text-ss">
+                                {{ __('Information not found') }}
                             </td>
                         </tr>
                     @endforelse

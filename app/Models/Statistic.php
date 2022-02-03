@@ -9,8 +9,7 @@ class Statistic extends Model
 {
     use HasFactory;
     protected $guarded = [];
-
-    public function country()
+    public function Country()
     {
         return $this->belongsTo(CountryApi::class);
     }

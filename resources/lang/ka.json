@@ -40,6 +40,8 @@
     "We have sent you a confirmation email": "ჩვენ გამოგიგზავნეთ დამადასტურებელი ელ.წერილი",
     "Your account is confirmed, you can sign in":"თქვენი ანგარიში დადასტურებულია, შეგიძლიათ შეხვიდეთ",
     "SIGN IN":"შესვლა",
-    "Your password has been updated successfully":"თქვენი პაროლი წარმატებით განახლდა"
+    "Your password has been updated successfully":"თქვენი პაროლი წარმატებით განახლდა",
+
+    "Information not found" : "ინფორმაცია ვერ მოიძებნა"
 
 }

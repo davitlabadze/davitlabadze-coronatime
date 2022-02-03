@@ -3,65 +3,99 @@
 namespace App\Http\Livewire;
 
 use App\Models\CountryApi;
+use App\Models\Statistic;
 use Livewire\Component;
-use Illuminate\Support\Facades\DB;
-use PHPUnit\Framework\Constraint\Count;
 
 class Country extends Component
 {
     public $search;
-    public $filteredByDeaths;
-    public $filteredByCountries;
-    public $filteredByConfirmed;
-    public $filteredByRecovered;
+    public $filter = 'countries';
+    public $filteredByCountries = null;
+    public $filteredByDeaths = null;
+    public $filteredByConfirmed = null;
+    public $filteredByRecovered = null;
 
-    public function countries()
-    {
-        $this->filteredByCountries = true;
-    }
-    public function recovered()
-    {
-        $this->filteredByRecovered = true;
-    }
+    protected $queryString = [
+        'filter'
+    ];
 
-    public function confirmed()
+    public function setFilter($newFilter, )
     {
-        $this->filteredByConfirmed = true;
-    }
-    public function deaths()
-    {
-        $this->filteredByDeaths = true;
-    }
+        $this->filter = $newFilter;
+        if ($this->filter == 'countries') {
+            if ($this->filteredByCountries === true) {
+                $this->filteredByCountries = false;
+            } else {
+                $this->filteredByCountries = true;
+            }
+            $this->filteredByConfirmed = null;
+            $this->filteredByRecovered = null;
+            $this->filteredByDeaths    = null;
+        }
+        if ($this->filter == 'confirmed') {
+            if ($this->filteredByConfirmed === true) {
+                $this->filteredByConfirmed = false;
+            } else {
+                $this->filteredByConfirmed = true;
+            }
+            $this->filteredByCountries = null;
+            $this->filteredByRecovered = null;
+            $this->filteredByDeaths    = null;
+        }
+        if ($this->filter == 'deaths') {
+            if ($this->filteredByDeaths === true) {
+                $this->filteredByDeaths = false;
+            } else {
+                $this->filteredByDeaths = true;
+            }
+            $this->filteredByCountries = null;
+            $this->filteredByConfirmed = null;
+            $this->filteredByRecovered = null;
+        }
 
+        if ($this->filter == 'recovered') {
+            if ($this->filteredByRecovered === true) {
+                $this->filteredByRecovered = false;
+            } else {
+                $this->filteredByRecovered = true;
+            }
+            $this->filteredByCountries = null;
+            $this->filteredByConfirmed = null;
+            $this->filteredByDeaths    = null;
+        }
+    }
     public function render()
     {
-
-        // $test = DB::table('users')
-        // ->join('country_apis', 'users.id', '=', 'country_apis.id')
-        // ->join('statistics', 'users.id', '=', 'statistics.country_api_id')
-        // ->select('users.id', 'country_apis.name', 'statistics.confirmed', 'statistics.deaths', 'statistics.recovered');
-
-        $user = auth()->user();
+        $user   = auth()->user();
         $locale = app()->currentLocale();
-        // $test = DB::table('country_apis')
-        // ->leftJoin('statistics', 'country_apis.id', '=', 'statistics.country_api_id');
         return view('livewire.country', [
             'user' => $user,
-            'countries' => CountryApi::with('statistics')->when(strlen($this->search) >= 2, function ($query) use ($locale) {
-                return $query->where("name->${locale}", 'like', '%'.$this->search.'%');
-            })
+            'filteredByCountries' => $this->filteredByCountries,
+            'filteredByConfirmed' => $this->filteredByConfirmed,
+            'filteredByDeaths' => $this->filteredByDeaths,
+            'filteredByRecovered' => $this->filteredByRecovered,
+            'countries' => CountryApi::leftJoin('statistics', 'country_apis.id', '=', 'statistics.country_api_id')
             ->when($this->filteredByCountries === true, function ($query) {
                 return $query->orderByDesc('name');
-            })->when($this->filteredByConfirmed === true, function ($query) {
-                return $query->orderByDesc('statistics.confirmed');
             })
-            ->when($this->filteredByRecovered === true, function ($query) {
-                return $query->orderByDesc('statistics.recovered');
+            ->when($this->filteredByCountries === true, function ($query) {
+                return $query->orderBy('name', 'asc');
+            })
+            ->when($this->filteredByConfirmed === true, function ($query) {
+                return $query->orderByDesc('confirmed');
             })
             ->when($this->filteredByDeaths === true, function ($query) {
-                return $query->orderByDesc('statistics.deaths');
+                return $query->orderByDesc('deaths');
             })
-            ->get()
+            ->when($this->filteredByRecovered === true, function ($query) {
+                return $query->orderByDesc('recovered');
+            })
+            ->when(strlen($this->search) >= 2, function ($query) use ($locale) {
+                return $query->where("name->${locale}", 'like', '%'.$this->search.'%');
+            })
+            ->get(),
+
+
         ]);
     }
 }

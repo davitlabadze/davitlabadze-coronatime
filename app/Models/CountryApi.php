@@ -13,7 +13,7 @@ class CountryApi extends Model
 
     public $translatable = ['name'];
 
-    public function statistics()
+    public function Statistics()
     {
         return $this->hasOne(Statistic::class);
     }
