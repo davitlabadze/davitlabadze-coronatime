@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\CountryApi;
-use App\Models\Statistic;
 use Livewire\Component;
 
 class Country extends Component
@@ -52,7 +51,6 @@ class Country extends Component
             $this->filteredByConfirmed = null;
             $this->filteredByRecovered = null;
         }
-
         if ($this->filter == 'recovered') {
             if ($this->filteredByRecovered === true) {
                 $this->filteredByRecovered = false;
@@ -94,8 +92,6 @@ class Country extends Component
                 return $query->where("name->${locale}", 'like', '%'.$this->search.'%');
             })
             ->get(),
-
-
         ]);
     }
 }
