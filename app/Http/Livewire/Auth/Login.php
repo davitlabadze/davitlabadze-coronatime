@@ -13,9 +13,7 @@ class Login extends Component
     public $password;
     public $user;
 
-
     protected $rules = [
-        // 'email'    => 'required|email',
         'name'     => 'required|min:3',
         'password' => 'required|min:3',
     ];
@@ -36,7 +34,7 @@ class Login extends Component
 
         event(new Auth($auth));
 
-        return redirect(route('dashboard', app()->getLocale()));
+        return redirect(route('worldwide', app()->getLocale()));
     }
     public function render()
     {

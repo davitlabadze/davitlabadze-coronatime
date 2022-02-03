@@ -1,7 +1,5 @@
 <?php
 
-
-use App\Http\Controllers\CountryApiController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Livewire\Auth\ConfirmationEmail;
@@ -16,8 +14,7 @@ use App\Http\Livewire\Country;
 use App\Http\Livewire\Dashboard;
 use App\Http\Livewire\Worldwide;
 
-// Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
-// Route::get('/', [CountryApiController::class,'show'])->name('show-data');
+Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)->name('login');
@@ -29,8 +26,7 @@ Route::middleware('auth')->group(function () {
         view('layouts.app');
     });
 
-    Route::get('dashboard', Dashboard::class)->name('dashboard');
-    Route::get('dashboard/worldwind', Worldwide::class)->name('worldwind');
+    Route::get('dashboard/worldwide', Worldwide::class)->name('worldwide');
     Route::get('dashboard/country', Country::class)->name('country');
     Route::get('signin', SigninAfterConfirmationEmail::class)->name('signed');
 });

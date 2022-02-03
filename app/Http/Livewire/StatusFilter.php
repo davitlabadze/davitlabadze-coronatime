@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class StatusFilter extends Component
 {
-    public $status = '';
+    public $status = 'worldwide';
 
     protected $queryString = [
         'status',
@@ -26,8 +26,8 @@ class StatusFilter extends Component
         $this->status = $newStatus;
 
 
-        if ($this->status === 'worldwind') {
-            return redirect()->route('worldwind', [
+        if ($this->status === 'worldwide') {
+            return redirect()->route('worldwide', [
                 'status' => $this->status,
                 app()->getLocale()
             ]);
