@@ -1050,9 +1050,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-grayscale: grayscale(100%);
   filter: var(--tw-filter);
 }
-.filter {
-  filter: var(--tw-filter);
-}
 
 
 /* width */
