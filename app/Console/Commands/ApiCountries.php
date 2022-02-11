@@ -2,9 +2,7 @@
 
 namespace App\Console\Commands;
 
-// use App\Http\Livewire\Country;
 use App\Models\CountryApi;
-use App\Models\Coutry;
 use App\Models\Statistic;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
@@ -16,14 +14,14 @@ class ApiCountries extends Command
      *
      * @var string
      */
-    protected $signature = 'ct:api';
+    protected $signature = 'generate:data';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'This command fetches covid statistic from provided API';
 
     /**
      * Create a new command instance.
@@ -35,6 +33,65 @@ class ApiCountries extends Command
         parent::__construct();
     }
 
+
+    protected function getCountries()
+    {
+        return Http::get('https://devtest.ge/countries')->json();
+    }
+
+    protected function getStatistics()
+    {
+        $responseCountries = $this->getCountries();
+        $point = count($responseCountries);
+
+        $this->output->progressStart($point);
+        $statistics = [];
+        foreach ($responseCountries as $item) {
+            $countryCode = $item['code'];
+            $response = Http::post('https://devtest.ge/get-country-statistics', [
+                'code' => $countryCode,
+             ])->json();
+            sleep(2);
+            $statistics[] = $response;
+            $this->output->progressAdvance();
+        }
+        $this->output->progressFinish();
+        return $statistics;
+    }
+
+    protected function updateOrCreateCountry()
+    {
+        $response = $this->getCountries();
+        $point    = count($response);
+        $this->output->progressStart($point);
+        foreach ($response as $data) {
+            CountryApi::updateOrCreate(
+                ['code' => $data['code']],
+                ['name' => [
+                    'en' => $data['name']['en'],
+                    'ka' => $data['name']['ka'],
+                    ]]
+            );
+            $this->output->progressAdvance();
+        }
+        $this->output->progressFinish();
+    }
+
+    protected function updateOrCreateStatistics()
+    {
+        $statistics = $this->getStatistics();
+        $point = count($statistics);
+        $this->output->progressStart($point);
+        foreach ($statistics as $item) {
+            Statistic::updateOrCreate(
+                ['country_api_id' => $item['id'] ,'confirmed' => $item['confirmed']],
+                ['recovered' => $item['recovered'], 'critical' => $item['critical'], 'deaths' => $item['deaths']],
+            );
+            $this->output->progressAdvance();
+        }
+        $this->output->progressFinish();
+    }
+
     /**
      * Execute the console command.
      *
@@ -42,64 +99,7 @@ class ApiCountries extends Command
      */
     public function handle()
     {
-        //get
-        $responseCountries = Http::get('https://devtest.ge/countries')->json();
-
-        foreach ($responseCountries as $item) {
-            CountryApi::create([
-                "code" => $item["code"],
-                "name" => $item["name"],
-            ]);
-        }
-
-        $statistics = [];
-        foreach ($responseCountries as $item) {
-            $this->output->progressStart(1);
-            $countryCode = $item['code'];
-
-            $response = Http::post('https://devtest.ge/get-country-statistics', [
-                "code"=> $countryCode,
-            ])->json();
-
-            sleep(2);
-            $this->output->progressAdvance();
-
-            $statistics[] = $response;
-            $this->output->progressFinish();
-        }
-
-        // $response = Http::post('https://devtest.ge/get-country-statistics', [
-        //     "id"=> 29,
-        //     "country"=> "Georgia",
-        //     "code"=> "GE",
-        //     "confirmed"=> 2398,
-        //     "recovered"=> 3147,
-        //     "critical"=> 2349,
-        //     "deaths"=> 477,
-        //     "created_at"=> "2021-09-13T11:43:39.000000Z",
-        //     "updated_at"=> "2021-09-13T11:43:39.000000Z"
-        // ])->json();
-
-        // Statistic::create([
-        //     'category_id' => $response['id'],
-        //     "confirmed"   => $response['confirmed'],
-        //     "recovered"   => $response['recovered'],
-        //     "critical"    => $response['critical'],
-        //     "deaths"      => $response['deaths']
-        // ]);
-
-
-        foreach ($statistics as $item) {
-            $this->output->progressStart(1);
-            Statistic::create([
-                'country_api_id' => $item['id'],
-                "confirmed"   => $item['confirmed'],
-                "recovered"   => $item['recovered'],
-                "critical"    => $item['critical'],
-                "deaths"      => $item['deaths']
-            ]);
-            $this->output->progressAdvance();
-        }
-        $this->output->progressFinish();
+        $this->updateOrCreateCountry();
+        $this->updateOrCreateStatistics();
     }
 }

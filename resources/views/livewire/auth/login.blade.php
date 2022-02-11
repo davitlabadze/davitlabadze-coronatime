@@ -7,25 +7,6 @@
                 <div class="mt-30 sm:mt-43">
                     <h1 class="font-black text-dark-100 text-xxl">{{__('Welcome back') }}</h1>
                     <p class="mt-16 font-normal text-dark-60 sm:mt-8">{{ __('Welcome back! Please enter your details') }}</p>
-                    {{-- <div class="mt-24">
-                        <label for="username" class="block font-bold text-dark-100 text-xxs">{{ __('Username') }}</label>
-                        <input
-                        class="outline-brand-primery h-56 p-24 mt-8 border rounded w-392 border-inner-border  sm:w-343
-                        @error('name') border-2 border-system-error  @enderror
-                        @if(Str::length($name) >=3)
-                        border-2 border-system-succes bg-success bg-no-repeat bg-right-1 sm:bg-right-sm
-                        @endif"
-                        type="text"
-                        placeholder="{{ __('Enter unique username or email') }}"
-                        wire:model="name" />
-                        @error('name')
-                             <span class="flex mt-2 text-system-error">
-                                 <img src="{{ asset('img/validate/error.svg') }}" alt="error icon" class="mr-2">
-                                {{ __($message) }}
-                            </span>
-                        @enderror
-                    </div> --}}
-
                     <div class="mt-24">
                         <label for="username" class="block font-bold text-dark-100 text-xxs">{{ __('Username') }}</label>
                         <input
