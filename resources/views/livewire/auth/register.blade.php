@@ -85,6 +85,6 @@
                 </div>
             </form>
         </div>
-        <img src="{{ asset('/img/rectangle1.png') }}" alt="covid19" class="w-full h-full sm:hidden ">
+        <x-image/>
     </div>
 </div>
