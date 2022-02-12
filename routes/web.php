@@ -14,7 +14,13 @@ use App\Http\Livewire\Country;
 use App\Http\Livewire\Worldwide;
 
 Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
-
+Route::get('/', function () {
+    if (auth()->check() === false) {
+        return redirect()->route('login');
+    } elseif (auth()->check() === true) {
+        return redirect()->route('worldwide');
+    }
+});
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)->name('login');
     Route::get('register', Register::class)->name('register');
@@ -38,7 +44,6 @@ Route::get('email/verify/{id}/{hash}', function (EmailVerificationRequest $reque
     return redirect()->route('signed', app()->getLocale());
 })->middleware(['auth', 'signed'])->name('verification.verify');
 
-// reset password
 Route::get('/forgot-password', ResetPassword::class)->middleware('guest')->name('password.request');
 Route::get('/reset-password/{token}', SetResetPassword::class)->name('password.reset');
 Route::get('/reset-password', SuccessfullyUpdatedPassword::class)->name('password.update');
