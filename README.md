@@ -43,6 +43,9 @@ CoronaTime is an app where you can view world statistics. You can also search fo
 6. Create database Run the command `database/database.sqlite` 
 7. Set the application key: Run the command `php artisan key:generate`
 8. Create data: Run the command `php artisan data:generate`
+  
+> **_NOTE:_** The data is automatically updated daily
+
 
 
 ## Database structure 
