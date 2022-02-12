@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="234" height="40" viewBox="0 0 234 40" xml:space="preserve">
+<desc>Created with Fabric.js 4.2.0</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 117 20)" id="4a1e81d1-3489-413c-ab01-49a16f96c795"  >
+<rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(12,140,188); fill-rule: nonzero; opacity: 1;" vector-effect="non-scaling-stroke"  x="-117" y="-20" rx="0" ry="0" width="234" height="40" />
+</g>
+<g transform="matrix(Infinity NaN NaN Infinity 0 0)" id="4a55511e-8665-491a-94bc-4864db5ef6a5"  >
+</g>
+<g transform="matrix(1 0 0 1 117 20)" style="" id="4b755d0c-4eda-4ba0-b693-3020e69b81a3"  >
+		<text xml:space="preserve" font-family="Lato" font-size="17" font-style="normal" font-weight="400" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-97.91" y="5.34" >spatie/laravel-translatable</tspan></text>
+</g>
+</svg>

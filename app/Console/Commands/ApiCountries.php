@@ -14,7 +14,7 @@ class ApiCountries extends Command
      *
      * @var string
      */
-    protected $signature = 'generate:data';
+    protected $signature = 'data:generate';
 
     /**
      * The console command description.
