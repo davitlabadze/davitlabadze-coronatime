@@ -41,8 +41,9 @@ CoronaTime is an app where you can view world statistics. You can also search fo
 4. Style optimization: Run the command `npm run dev`
 5. Create env file Run the command `cp .env.example .env`
 6. Create database Run the command `database/database.sqlite` 
-7. Set the application key: Run the command `php artisan key:generate`
-8. Create data: Run the command `php artisan data:generate`
+7. Run the database migrations `php artisan migrate`
+8. Set the application key: Run the command `php artisan key:generate`
+9. Create data: Run the command `php artisan data:generate`
   
 > **_NOTE:_** The data is automatically updated daily
 
