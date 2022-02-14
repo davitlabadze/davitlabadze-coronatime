@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
-
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Password;
 

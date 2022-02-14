@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Auth;
 
 use Livewire\Component;
-
 use Illuminate\Support\Facades\Password;
 
 class ResetPassword extends Component

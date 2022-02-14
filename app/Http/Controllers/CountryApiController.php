@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\CountryApi;
-use App\Models\Statistic;
-use Illuminate\Http\Request;
 
 class CountryApiController extends Controller
 {
