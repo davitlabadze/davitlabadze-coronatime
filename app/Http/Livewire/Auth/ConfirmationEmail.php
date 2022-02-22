@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ConfirmationEmail extends Component
 {
-    public function mount()
+    public function mout()
     {
         $user = Auth::user();
         if ($user) {

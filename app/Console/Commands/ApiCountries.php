@@ -33,73 +33,28 @@ class ApiCountries extends Command
         parent::__construct();
     }
 
-
-    protected function getCountries()
-    {
-        return Http::get('https://devtest.ge/countries')->json();
-    }
-
-    protected function getStatistics()
-    {
-        $responseCountries = $this->getCountries();
-        $point = count($responseCountries);
-
-        $this->output->progressStart($point);
-        $statistics = [];
-        foreach ($responseCountries as $item) {
-            $countryCode = $item['code'];
-            $response = Http::post('https://devtest.ge/get-country-statistics', [
-                'code' => $countryCode,
-             ])->json();
-            sleep(2);
-            $statistics[] = $response;
-            $this->output->progressAdvance();
-        }
-        $this->output->progressFinish();
-        return $statistics;
-    }
-
-    protected function updateOrCreateCountry()
-    {
-        $response = $this->getCountries();
-        $point    = count($response);
-        $this->output->progressStart($point);
-        foreach ($response as $data) {
-            CountryApi::updateOrCreate(
-                ['code' => $data['code']],
-                ['name' => [
-                    'en' => $data['name']['en'],
-                    'ka' => $data['name']['ka'],
-                    ]]
-            );
-            $this->output->progressAdvance();
-        }
-        $this->output->progressFinish();
-    }
-
-    protected function updateOrCreateStatistics()
-    {
-        $statistics = $this->getStatistics();
-        $point = count($statistics);
-        $this->output->progressStart($point);
-        foreach ($statistics as $item) {
-            Statistic::updateOrCreate(
-                ['country_api_id' => $item['id'] ,'confirmed' => $item['confirmed']],
-                ['recovered' => $item['recovered'], 'critical' => $item['critical'], 'deaths' => $item['deaths']],
-            );
-            $this->output->progressAdvance();
-        }
-        $this->output->progressFinish();
-    }
-
-    /**
-     * Execute the console command.
-     *
-     * @return int
-     */
     public function handle()
     {
-        $this->updateOrCreateCountry();
-        $this->updateOrCreateStatistics();
+        $countries = Http::get('https://devtest.ge/countries')->json();
+        $this->output->progressStart(count($countries));
+        foreach ($countries as $country) {
+            CountryApi::updateOrCreate(
+                ['code' => $country['code']],
+                ['name' => [
+                    'en' => $country['name']['en'],
+                    'ka' => $country['name']['ka'],
+                ]]
+            );
+            $statistic = Http::post('https://devtest.ge/get-country-statistics', [
+                'code' => $country['code'],
+             ])->json();
+            sleep(2);
+            Statistic::updateOrCreate(
+                ['country_api_id' => $statistic['id']],
+                ['confirmed' => $statistic['confirmed'],'recovered' => $statistic['recovered'], 'critical' => $statistic['critical'], 'deaths' => $statistic['deaths']],
+            );
+            $this->output->progressAdvance();
+        }
+        $this->output->progressFinish();
     }
 }
