@@ -13,7 +13,7 @@
                     <livewire:logout />
                 </div>
                 <div>
-                    <h1 class="font-bold text-16 sm:hidden">{{ $user->name }}</h1>
+                    <h1 class="font-bold text-16 sm:hidden">{{ auth()->user()->name }}</h1>
                 </div>
                 <div class="w-1 h-32 ml-16 mr-16 bg-dark-20 sm:hidden"></div>
                 <div class="sm:hidden">

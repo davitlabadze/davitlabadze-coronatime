@@ -18,7 +18,7 @@ class Country extends Component
         'filter'
     ];
 
-    public function setFilter($newFilter, )
+    public function setFilter($newFilter)
     {
         $this->filter = $newFilter;
         if ($this->filter == 'countries') {
