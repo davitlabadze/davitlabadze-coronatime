@@ -10,7 +10,7 @@
 
         </div>
         <div class="grid justify-items-center sm:mt-214">
-            <form action="#">
+            <form action="#" wire:submit.prevent="submit">
                 <button type="submit"
                     class="h-56 rounded-lg mt-94 bg-brand-secondary w-392 sm:absolute sm:inset-x-0 sm:bottom-0 sm:mb-40 sm:h-48 sm:w-343 sm:ml-16"><a
                         href="{{ route('worldwide', app()->getLocale()) }}"
