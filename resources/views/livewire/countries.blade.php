@@ -9,14 +9,14 @@
             <table class="w-full rounded-lg sm:w-96">
                 <thead class="flex w-full bg-dark-4 sm:w-96 ">
                     <tr class="flex w-full">
-                        <th wire:click.prevent="setFilter('countries')" scope="col"
+                        <th wire:click.prevent="sortBy('countries')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Location') }}
                             <div class="py-1 ml-2">
-                                @if ($filteredByCountries === true)
+                                @if ($sortDirection && $sortBy === 'countries')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif($filteredByCountries === false)
+                                @elseif(!$sortDirection && $sortBy === 'countries')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -26,14 +26,14 @@
                             </div>
                         </th>
 
-                        <th wire:click.prevent="setFilter('confirmed')" scope="col"
+                        <th wire:click.prevent="sortBy('confirmed')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('New cases') }}
                             <div class="py-1 ml-2">
-                                @if ($filteredByConfirmed === true)
+                                @if ($sortDirection && $sortBy === 'confirmed')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif($filteredByConfirmed === false)
+                                @elseif(!$sortDirection && $sortBy === 'confirmed')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -42,14 +42,14 @@
                                 @endif
                             </div>
                         </th>
-                        <th wire:click.prevent="setFilter('deaths')" scope="col"
+                        <th wire:click.prevent="sortBy('deaths')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Deaths') }}
                             <div class="py-1 ml-2">
-                                @if ($filteredByDeaths === true)
+                                @if ($sortDirection && $sortBy === 'deaths')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif($filteredByDeaths === false)
+                                @elseif(!$sortDirection && $sortBy === 'deaths')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -58,14 +58,14 @@
                                 @endif
                             </div>
                         </th>
-                        <th wire:click.prevent="setFilter('recovered')" scope="col"
+                        <th wire:click.prevent="sortBy('recovered')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Recovered') }}
                             <div class="py-1 ml-2">
-                                @if ($filteredByRecovered === true)
+                                @if ($sortDirection && $sortBy === 'recovered')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif($filteredByRecovered === false)
+                                @elseif(!$sortDirection && $sortBy === 'recovered')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else

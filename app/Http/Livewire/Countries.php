@@ -8,86 +8,37 @@ use Livewire\Component;
 class Countries extends Component
 {
     public $search;
-    public $filter = 'countries';
-    public $filteredByCountries = null;
-    public $filteredByDeaths = null;
-    public $filteredByConfirmed = null;
-    public $filteredByRecovered = null;
+    public $sortBy = '';
+    public $sortDirection = 'asc';
 
     protected $queryString = [
-        'filter'
+        'sortBy'
     ];
 
-    public function setFilter($newFilter)
+    public function sortBy($column)
     {
-        $this->filter = $newFilter;
-        if ($this->filter == 'countries') {
-            if ($this->filteredByCountries === true) {
-                $this->filteredByCountries = false;
-            } else {
-                $this->filteredByCountries = true;
-            }
-            $this->filteredByConfirmed = null;
-            $this->filteredByRecovered = null;
-            $this->filteredByDeaths    = null;
-        }
-        if ($this->filter == 'confirmed') {
-            if ($this->filteredByConfirmed === true) {
-                $this->filteredByConfirmed = false;
-            } else {
-                $this->filteredByConfirmed = true;
-            }
-            $this->filteredByCountries = null;
-            $this->filteredByRecovered = null;
-            $this->filteredByDeaths    = null;
-        }
-        if ($this->filter == 'deaths') {
-            if ($this->filteredByDeaths === true) {
-                $this->filteredByDeaths = false;
-            } else {
-                $this->filteredByDeaths = true;
-            }
-            $this->filteredByCountries = null;
-            $this->filteredByConfirmed = null;
-            $this->filteredByRecovered = null;
-        }
-        if ($this->filter == 'recovered') {
-            if ($this->filteredByRecovered === true) {
-                $this->filteredByRecovered = false;
-            } else {
-                $this->filteredByRecovered = true;
-            }
-            $this->filteredByCountries = null;
-            $this->filteredByConfirmed = null;
-            $this->filteredByDeaths    = null;
-        }
+        $this->sortDirection = $this->sortBy === $column ? !$this->sortDirection : 'asc';
+        $this->sortBy = $column;
     }
+
     public function render()
     {
         $user   = auth()->user();
         $locale = app()->currentLocale();
         return view('livewire.countries', [
             'user' => $user,
-            'countries' => Country::leftJoin('statistics', 'countries.id', '=', 'statistics.country_id')
-            ->when($this->filteredByCountries === true, function ($query) {
+            'countries' => Country::join('statistics', 'countries.id', '=', 'statistics.country_id')
+            ->orderBy($this->sortBy, $this->sortDirection ? 'asc' : 'desc')
+            ->when($this->sortDirection === false, function ($query) {
                 return $query->orderByDesc('name');
             })
-            ->when($this->filteredByCountries === true, function ($query) {
+            ->when($this->sortDirection === true, function ($query) {
                 return $query->orderBy('name', 'asc');
-            })
-            ->when($this->filteredByConfirmed === true, function ($query) {
-                return $query->orderByDesc('confirmed');
-            })
-            ->when($this->filteredByDeaths === true, function ($query) {
-                return $query->orderByDesc('deaths');
-            })
-            ->when($this->filteredByRecovered === true, function ($query) {
-                return $query->orderByDesc('recovered');
             })
             ->when(strlen($this->search) >= 2, function ($query) use ($locale) {
                 return $query->where("name->${locale}", 'like', '%'.$this->search.'%');
             })
-            ->get(),
+            ->get()
         ]);
     }
 }
