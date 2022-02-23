@@ -2,12 +2,12 @@
 
 namespace App\Console\Commands;
 
-use App\Models\CountryApi;
+use App\Models\Country;
 use App\Models\Statistic;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 
-class ApiCountries extends Command
+class FetchCountries extends Command
 {
     /**
      * The name and signature of the console command.
@@ -38,7 +38,7 @@ class ApiCountries extends Command
         $countries = Http::get('https://devtest.ge/countries')->json();
         $this->output->progressStart(count($countries));
         foreach ($countries as $country) {
-            CountryApi::updateOrCreate(
+            Country::updateOrCreate(
                 ['code' => $country['code']],
                 ['name' => [
                     'en' => $country['name']['en'],
@@ -50,7 +50,7 @@ class ApiCountries extends Command
              ])->json();
             sleep(2);
             Statistic::updateOrCreate(
-                ['country_api_id' => $statistic['id']],
+                ['country_id' => $statistic['id']],
                 ['confirmed' => $statistic['confirmed'],'recovered' => $statistic['recovered'], 'critical' => $statistic['critical'], 'deaths' => $statistic['deaths']],
             );
             $this->output->progressAdvance();

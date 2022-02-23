@@ -10,9 +10,8 @@ use App\Http\Livewire\Auth\ResetPassword;
 use App\Http\Livewire\Auth\SetResetPassword;
 use App\Http\Livewire\Auth\SigninAfterConfirmationEmail;
 use App\Http\Livewire\Auth\SuccessfullyUpdatedPassword;
-use App\Http\Livewire\Country;
+use App\Http\Livewire\Countries;
 use App\Http\Livewire\Worldwide;
-use Illuminate\Auth\Events\Verified;
 
 Route::get('/lang/{lang}', [LanguageController::class,'change'])->name('change-lang');
 Route::get('/', function () {
@@ -29,7 +28,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware(['auth','verified'])->group(function () {
     Route::get('dashboard/worldwide', Worldwide::class)->name('worldwide');
-    Route::get('dashboard/country', Country::class)->name('country');
+    Route::get('dashboard/country', Countries::class)->name('country');
     Route::get('signin', SigninAfterConfirmationEmail::class)->name('signed');
 });
 

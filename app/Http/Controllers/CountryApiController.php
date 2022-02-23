@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CountryApi;
+use App\Models\Country;
 
-class CountryApiController extends Controller
+class CountryController extends Controller
 {
     public function show()
     {
-        $countries = CountryApi::all();
+        $countries = Country::all();
         return redirect()->route('countries', ['countries' => $countries]);
     }
 }

@@ -15,7 +15,7 @@ class CreateStatisticsTable extends Migration
     {
         Schema::create('statistics', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('country_api_id');
+            $table->foreignId('country_id');
             $table->integer('confirmed');
             $table->integer('recovered');
             $table->integer('critical');

@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\CountryApi;
+use App\Models\Country;
 use Livewire\Component;
 
-class Country extends Component
+class Countries extends Component
 {
     public $search;
     public $filter = 'countries';
@@ -66,13 +66,13 @@ class Country extends Component
     {
         $user   = auth()->user();
         $locale = app()->currentLocale();
-        return view('livewire.country', [
+        return view('livewire.countries', [
             'user' => $user,
             'filteredByCountries' => $this->filteredByCountries,
             'filteredByConfirmed' => $this->filteredByConfirmed,
             'filteredByDeaths' => $this->filteredByDeaths,
             'filteredByRecovered' => $this->filteredByRecovered,
-            'countries' => CountryApi::leftJoin('statistics', 'country_apis.id', '=', 'statistics.country_api_id')
+            'countries' => Country::leftJoin('statistics', 'country_apis.id', '=', 'statistics.country_api_id')
             ->when($this->filteredByCountries === true, function ($query) {
                 return $query->orderByDesc('name');
             })

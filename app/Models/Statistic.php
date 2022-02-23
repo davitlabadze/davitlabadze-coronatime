@@ -11,6 +11,6 @@ class Statistic extends Model
     protected $guarded = [];
     public function Country()
     {
-        return $this->belongsTo(CountryApi::class);
+        return $this->belongsTo(Country::class);
     }
 }
