@@ -72,7 +72,7 @@ class Countries extends Component
             'filteredByConfirmed' => $this->filteredByConfirmed,
             'filteredByDeaths' => $this->filteredByDeaths,
             'filteredByRecovered' => $this->filteredByRecovered,
-            'countries' => Country::leftJoin('statistics', 'country_apis.id', '=', 'statistics.country_api_id')
+            'countries' => Country::leftJoin('statistics', 'countries.id', '=', 'statistics.country_id')
             ->when($this->filteredByCountries === true, function ($query) {
                 return $query->orderByDesc('name');
             })
