@@ -35,16 +35,6 @@ class Login extends Component
             'password' => $this->password,
         ]);
 
-
-        $user = Auth::user();
-        if ($user) {
-            if (!$user->hasVerifiedEmail()) {
-                Auth::logout();
-                return redirect()->route('verify');
-            }
-        }
-
-
         event(new Auth($auth));
 
         return  redirect(route('worldwide', app()->getLocale()));
