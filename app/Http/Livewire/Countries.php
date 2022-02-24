@@ -23,10 +23,8 @@ class Countries extends Component
 
     public function render()
     {
-        // $user   = auth()->user();
         $locale = app()->currentLocale();
         return view('livewire.countries', [
-            // 'user' => $user,
             'countries' => Country::join('statistics', 'countries.id', '=', 'statistics.country_id')
             ->orderBy($this->sortBy, $this->sortDirection ? 'asc' : 'desc')
             ->when($this->sortDirection === false, function ($query) {
