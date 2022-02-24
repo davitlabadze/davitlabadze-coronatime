@@ -9,14 +9,14 @@
             <table class="w-full rounded-lg sm:w-96">
                 <thead class="flex w-full bg-dark-4 sm:w-96 ">
                     <tr class="flex w-full">
-                        <th wire:click.prevent="sortBy('countries')" scope="col"
+                        <th wire:click.prevent="sortBy('name')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Location') }}
                             <div class="py-1 ml-2">
-                                @if ($sortDirection && $sortBy === 'countries')
+                                @if ($sortDirectionAsc && $sortBy === 'name')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif(!$sortDirection && $sortBy === 'countries')
+                                @elseif(!$sortDirectionAsc && $sortBy === 'name')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -25,15 +25,14 @@
                                 @endif
                             </div>
                         </th>
-
                         <th wire:click.prevent="sortBy('confirmed')" scope="col"
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('New cases') }}
                             <div class="py-1 ml-2">
-                                @if ($sortDirection && $sortBy === 'confirmed')
+                                @if ($sortDirectionAsc && $sortBy === 'confirmed')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif(!$sortDirection && $sortBy === 'confirmed')
+                                @elseif(!$sortDirectionAsc && $sortBy === 'confirmed')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -46,10 +45,10 @@
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Deaths') }}
                             <div class="py-1 ml-2">
-                                @if ($sortDirection && $sortBy === 'deaths')
+                                @if ($sortDirectionAsc && $sortBy === 'deaths')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif(!$sortDirection && $sortBy === 'deaths')
+                                @elseif(!$sortDirectionAsc && $sortBy === 'deaths')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
@@ -62,10 +61,10 @@
                             class="flex justify-center w-1/4 py-20 font-semibold cursor-pointer text-dark-100 text-xxs sm:text-ss">
                             {{ __('Recovered') }}
                             <div class="py-1 ml-2">
-                                @if ($sortDirection && $sortBy === 'recovered')
+                                @if ($sortDirectionAsc && $sortBy === 'recovered')
                                     <a><img src="{{ asset('img/asc.svg') }}" alt="up"></a>
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up"></a>
-                                @elseif(!$sortDirection && $sortBy === 'recovered')
+                                @elseif(!$sortDirectionAsc && $sortBy === 'recovered')
                                     <a><img src="{{ asset('img/checkfilter.svg') }}" alt="up" class="rotate-180"></a>
                                     <a><img src="{{ asset('img/desc.svg') }}" alt="down"></a>
                                 @else
