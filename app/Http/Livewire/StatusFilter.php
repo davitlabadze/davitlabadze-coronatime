@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use Illuminate\Support\Facades\Route;
 use Livewire\Component;
 
 class StatusFilter extends Component
@@ -13,18 +12,9 @@ class StatusFilter extends Component
         'status',
     ];
 
-    public function mount()
-    {
-        if (Route::currentRouteName() === 'dashboard') {
-            $this->status = null;
-            $this->queryString = [];
-        }
-    }
-
     public function setStatus($newStatus)
     {
         $this->status = $newStatus;
-
 
         if ($this->status === 'worldwide') {
             return redirect()->route('worldwide', [
