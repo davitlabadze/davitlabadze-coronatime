@@ -29,7 +29,7 @@ class Countries extends Component
         return view('livewire.countries', [
             'countries' => Country::join('statistics', 'countries.id', '=', 'statistics.country_id')
             ->orderBy($sortColumn, $this->sortDirectionAsc ? 'asc' : 'desc')
-            ->when(strlen($this->search) >= 2, function ($query) use ($locale) {
+            ->when(strlen($this->search) >= 3, function ($query) use ($locale) {
                 return $query->where("name->${locale}", 'like', '%'.$this->search.'%');
             })
             ->get()
