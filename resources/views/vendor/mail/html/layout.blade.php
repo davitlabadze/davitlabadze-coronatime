@@ -40,7 +40,7 @@ width: 100% !important;
 <tr>
 <td class="content-cell">
 
-    <img src="{{ asset('img/verify.svg') }}" class="logo" alt="Laravel Logo">
+    <img src="http::localhost::8000/img/verify.png" class="logo" alt="Coronatime">
 
 {{ Illuminate\Mail\Markdown::parse($slot) }}
 
