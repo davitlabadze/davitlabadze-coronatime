@@ -40,7 +40,7 @@ width: 100% !important;
 <tr>
 <td class="content-cell">
 
-    <img src="https://coronatime.labadze.redberryinternship/img/verify.png" class="logo" alt="Coronatime">
+    <img src="https://coronatime.labadze.redberryinternship.ge/img/verify.png" class="logo" alt="Coronatime">
 
 {{ Illuminate\Mail\Markdown::parse($slot) }}
 
